@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Продающие карточки товара за 24 часа — Kostin Automation</title>
+<meta name="description" content="Пришлите обычное фото товара — получите карточку уровня студийной съёмки за 24 часа. Первый образец бесплатно.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1b1e23;
+  --ink-soft:#565f6b;
+  --paper:#ffffff;
+  --paper-alt:#f6f7f4;
+  --line:#e3e6e1;
+  --accent:#166534;
+  --accent-dark:#14532d;
+  --radius:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.55;
+  font-size:17px;
+}
+img{max-width:100%;display:block;height:auto}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* header */
+header{border-bottom:1px solid var(--line)}
+.head-in{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{font-weight:800;font-size:16px;letter-spacing:-0.01em}
+.brand span{color:var(--accent)}
+.head-cta{font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
+.head-cta:hover{text-decoration:underline}
+
+/* hero */
+.hero{padding:56px 0 64px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center}
+@media(min-width:820px){.hero-grid{grid-template-columns:1.05fr 0.95fr}}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+h1{font-size:clamp(30px,6vw,46px);font-weight:800;letter-spacing:-0.03em;line-height:1.08;margin-bottom:16px}
+.sub{font-size:clamp(17px,2.5vw,20px);color:var(--ink-soft);margin-bottom:28px;max-width:34ch}
+.btn{
+  display:inline-block;background:var(--accent);color:#fff;
+  font-weight:600;font-size:17px;padding:15px 28px;border-radius:10px;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:background .15s ease;
+}
+.btn:hover{background:var(--accent-dark)}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.guarantee{margin-top:14px;font-size:15px;color:var(--ink-soft)}
+.guarantee strong{color:var(--ink)}
+
+/* the signature before->after device */
+.pair{display:grid;grid-template-columns:0.72fr 1fr;gap:14px;align-items:end}
+.shot{position:relative}
+.shot img{border-radius:8px}
+.shot--before img{border:1px solid var(--line)}
+.shot--after img{border-radius:var(--radius);box-shadow:0 12px 32px rgba(27,30,35,.16)}
+.shot figcaption{font-size:13px;color:var(--ink-soft);margin-top:8px}
+.shot--after figcaption{font-weight:600;color:var(--accent)}
+.pair-arrow{
+  position:absolute;top:50%;right:-24px;transform:translateY(-50%);
+  width:34px;height:34px;border-radius:50%;
+  background:var(--paper);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:var(--accent);font-size:16px;z-index:2;
+}
+
+/* sections */
+section{padding:56px 0}
+.sec-alt{background:var(--paper-alt)}
+h2{font-size:clamp(24px,4vw,32px);font-weight:800;letter-spacing:-0.02em;margin-bottom:8px}
+.sec-sub{color:var(--ink-soft);margin-bottom:36px;max-width:52ch}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:1fr;gap:40px}
+@media(min-width:680px){.gallery{grid-template-columns:1fr 1fr;gap:44px 36px}}
+
+/* pricing */
+.prices{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:20px}
+@media(min-width:680px){.prices{grid-template-columns:1fr 1fr;max-width:720px}}
+.price-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;position:relative;
+}
+.price-card--best{border:2px solid var(--accent)}
+.badge{
+  position:absolute;top:-11px;left:22px;background:var(--accent);color:#fff;
+  font-size:12px;font-weight:600;padding:2px 10px;border-radius:99px;letter-spacing:0.03em;
+}
+.price-name{font-weight:600;font-size:15px;color:var(--ink-soft);margin-bottom:4px}
+.price-num{font-size:34px;font-weight:800;letter-spacing:-0.02em;margin-bottom:4px}
+.price-what{font-size:15px;color:var(--ink-soft)}
+.price-note{font-size:15px;color:var(--ink-soft)}
+.price-note strong{color:var(--ink)}
+
+/* steps */
+.steps{display:grid;grid-template-columns:1fr;gap:20px;counter-reset:step}
+@media(min-width:680px){.steps{grid-template-columns:1fr 1fr 1fr}}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.step-num{
+  width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;
+  font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+}
+.step h3{font-size:17px;font-weight:600;margin-bottom:6px}
+.step p{font-size:15px;color:var(--ink-soft)}
+
+/* form */
+.form-wrap{max-width:520px}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+input,textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);
+  border:1px solid var(--line);border-radius:8px;padding:12px 14px;
+  background:var(--paper);margin-bottom:16px;
+}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+textarea{min-height:96px;resize:vertical}
+.form-status{margin-top:14px;font-size:15px;font-weight:600;display:none}
+.form-status.ok{display:block;color:var(--accent)}
+.form-status.err{display:block;color:#b3261e}
+.mailto-alt{margin-top:18px;font-size:14px;color:var(--ink-soft)}
+.mailto-alt a{color:var(--accent)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:26px 0;font-size:14px;color:var(--ink-soft)}
+.foot-in{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-in">
+    <div class="brand">Kostin <span>Automation</span></div>
+    <a class="head-cta" href="#zayavka">Бесплатный образец</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Для небольших магазинов</p>
+      <h1>Продающие карточки товара за 24&nbsp;часа</h1>
+      <p class="sub">Пришлите обычное фото — получите карточку уровня студийной съёмки.</p>
+      <a class="btn" href="#zayavka">Получить бесплатный образец</a>
+      <p class="guarantee"><strong>Не понравится — не платите.</strong> Первая карточка бесплатно.</p>
+    </div>
+    <div class="pair">
+      <figure class="shot shot--before">
+        <img src="img/before-1.jpg" width="720" height="480" alt="Обычное фото банки мёда, снятое дома">
+        <figcaption>обычное фото</figcaption>
+        <span class="pair-arrow" aria-hidden="true">&rarr;</span>
+      </figure>
+      <figure class="shot shot--after">
+        <img src="img/after-1.jpg" width="720" height="1073" alt="Готовая продающая карточка: та же банка мёда в студийной подаче">
+        <figcaption>карточка</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec-alt" id="primery">
+  <div class="wrap">
+    <h2>До и после</h2>
+    <p class="sec-sub">Это те же самые товары. Слева — фото как есть, справа — карточка, которую получает магазин.</p>
+    <div class="gallery">
+      <div class="pair">
+        <figure class="shot shot--before">
+          <img src="img/before-2.jpg" width="720" height="480" loading="lazy" alt="Обычное фото жемчужного ожерелья в коробке">
+          <figcaption>обычное фото</figcaption>
+          <span class="pair-arrow" aria-hidden="true">&rarr;</span>
+        </figure>
+        <figure class="shot shot--after">
+          <img src="img/after-2.jpg" width="720" height="1073" loading="lazy" alt="Карточка: то же ожерелье на светлом камне, студийный свет">
+          <figcaption>карточка</figcaption>
+        </figure>
+      </div>
+      <div class="pair">
+        <figure class="shot shot--before">
+          <img src="img/before-3.jpg" width="720" height="523" loading="lazy" alt="Обычное фото наручных часов в руке">
+          <figcaption>обычное фото</figcaption>
+          <span class="pair-arrow" aria-hidden="true">&rarr;</span>
+        </figure>
+        <figure class="shot shot--after">
+          <img src="img/after-3.jpg" width="720" height="1073" loading="lazy" alt="Карточка: те же часы на каменном постаменте">
+          <figcaption>карточка</figcaption>
+        </figure>
+      </div>
+      <div class="pair">
+        <figure class="shot shot--before">
+          <img src="img/before-4.jpg" width="720" height="1080" loading="lazy" alt="Обычное фото зелёной бутылки на белом фоне">
+          <figcaption>обычное фото</figcaption>
+          <span class="pair-arrow" aria-hidden="true">&rarr;</span>
+        </figure>
+        <figure class="shot shot--after">
+          <img src="img/after-4.jpg" width="720" height="1073" loading="lazy" alt="Карточка: та же бутылка на подиуме с веткой эвкалипта">
+          <figcaption>карточка</figcaption>
+        </figure>
+      </div>
+      <div class="pair">
+        <figure class="shot shot--before">
+          <img src="img/before-1.jpg" width="720" height="480" loading="lazy" alt="Обычное фото банки мёда">
+          <figcaption>обычное фото</figcaption>
+          <span class="pair-arrow" aria-hidden="true">&rarr;</span>
+        </figure>
+        <figure class="shot shot--after">
+          <img src="img/after-1.jpg" width="720" height="1073" loading="lazy" alt="Карточка: та же банка мёда с сотами и ковшиком">
+          <figcaption>карточка</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap">
+    <h2>Прайс</h2>
+    <p class="sec-sub">Без предоплаты. Сначала бесплатный образец по вашему фото.</p>
+    <div class="prices">
+      <div class="price-card">
+        <p class="price-name">Пакет «Проба»</p>
+        <p class="price-num">€30</p>
+        <p class="price-what">5 карточек &middot; срок 24 часа</p>
+      </div>
+      <div class="price-card price-card--best">
+        <span class="badge">выгоднее</span>
+        <p class="price-name">Пакет «Витрина»</p>
+        <p class="price-num">€50</p>
+        <p class="price-what">10 карточек &middot; срок 24 часа</p>
+      </div>
+    </div>
+    <p class="price-note"><strong>Не понравится — не платите.</strong></p>
+  </div>
+</section>
+
+<section class="sec-alt" id="kak">
+  <div class="wrap">
+    <h2>Как это работает</h2>
+    <p class="sec-sub">Три шага, никаких созвонов и брифов на десять страниц.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Присылаете фото</h3>
+        <p>Обычные снимки с телефона — этого достаточно.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Согласуем стиль</h3>
+        <p>Покажем бесплатный образец. Правки — до тех пор, пока не понравится.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Получаете карточки за 24 часа</h3>
+        <p>Готовые файлы для маркетплейса, Instagram или сайта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="zayavka">
+  <div class="wrap">
+    <h2>Получить бесплатный образец</h2>
+    <p class="sec-sub">Оставьте контакт — ответим в течение пары часов и попросим одно фото товара.</p>
+    <form class="form-wrap" id="lead-form" action="https://formsubmit.co/kostinmihail40@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Заявка с сайта product-cards">
+      <input type="hidden" name="_captcha" value="false">
+      <label for="f-name">Имя</label>
+      <input id="f-name" name="name" type="text" required autocomplete="name">
+      <label for="f-contact">Телефон, Telegram или WhatsApp</label>
+      <input id="f-contact" name="contact" type="text" required autocomplete="tel">
+      <label for="f-message">Что за товар? (пара слов)</label>
+      <textarea id="f-message" name="message" placeholder="Например: свечи ручной работы, 12 позиций"></textarea>
+      <button class="btn" type="submit">Отправить заявку</button>
+      <p class="form-status" id="form-status" role="status"></p>
+      <p class="mailto-alt">Удобнее почтой? Пишите: <a href="mailto:kostinmihail40@gmail.com?subject=Бесплатный%20образец%20карточки">kostinmihail40@gmail.com</a></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>Kostin Automation</span>
+    <a href="mailto:kostinmihail40@gmail.com">kostinmihail40@gmail.com</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form = document.getElementById('lead-form');
+  var status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    status.className = 'form-status';
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    fetch('https://formsubmit.co/ajax/kostinmihail40@gmail.com', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({
+        _subject: 'Заявка с сайта product-cards',
+        name: form.name.value,
+        contact: form.contact.value,
+        message: form.message.value
+      })
+    }).then(function(r){ return r.json(); }).then(function(d){
+      if (d.success === 'true' || d.success === true) {
+        status.textContent = 'Заявка отправлена. Ответим в течение пары часов.';
+        status.className = 'form-status ok';
+        form.reset();
+      } else { throw new Error('fail'); }
+    }).catch(function(){
+      status.textContent = 'Не получилось отправить. Напишите нам на почту — ссылка ниже.';
+      status.className = 'form-status err';
+    }).finally(function(){ btn.disabled = false; });
+  });
+})();
+</script>
+
+</body>
+</html>
